@@ -33,5 +33,6 @@ RUN git clone 'https://github.com/isaacs/nave.git' /code/nave && /code/nave/nave
 # add global install dir to $NODE_PATH
 ENV NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
-# get ready for pelias config
+# get ready for pelias config with an empty file
 ENV PELIAS_CONFIG '/code/pelias.json'
+RUN echo '{}' > /code/pelias.json
