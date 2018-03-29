@@ -7,7 +7,8 @@ ENV DEBIAN_FRONTEND 'noninteractive'
 # update apt, install core apt dependencies and delete the apt-cache
 # note: this is done in one command in order to keep down the size of intermediate containers
 RUN apt-get update && \
-    apt-get install -y locales iputils-ping curl wget git-core && \
+    apt-get install -y locales iputils-ping curl wget git-core \
+    autoconf automake libtool pkg-config python && \
     rm -rf /var/lib/apt/lists/*
 
 # configure locale
