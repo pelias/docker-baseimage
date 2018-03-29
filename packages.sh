@@ -1,5 +1,6 @@
 packages=(
 "locales" # required for language support
+"apt-utils"
 "iputils-ping"
 "curl"
 "wget"
