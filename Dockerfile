@@ -34,4 +34,10 @@ ENV NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
 # get ready for pelias config with an empty file
 ENV PELIAS_CONFIG '/code/pelias.json'
-RUN echo '{}' > /code/pelias.json
+RUN echo '{}' > '/code/pelias.json'
+
+# add a pelias user
+RUN useradd -ms /bin/bash pelias
+
+# ensure symlinks, pelias.json, and anything else are owned by pelias user
+RUN chown pelias:pelias /data /code -R
