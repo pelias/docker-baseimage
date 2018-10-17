@@ -1,5 +1,5 @@
 # base image
-FROM ubuntu:latest
+FROM ubuntu:16.04
 
 # configure env
 ENV DEBIAN_FRONTEND 'noninteractive'

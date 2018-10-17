@@ -10,6 +10,7 @@ packages=(
 "libtool"
 "pkg-config"
 "python" # required for node-gyp, in particular `integer` required by `better-sqlite3`
+"software-properties-common" # required to add valhalla repo
 )
 
 apt-get update && \
