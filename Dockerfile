@@ -19,10 +19,7 @@ ENV LC_ALL 'en_US.UTF-8'
 LABEL maintainer="pelias.team@gmail.com"¬
 
 # configure directories
-RUN mkdir -p '/code/pelias'
-
-# configure volumes
-VOLUME "/data"
+RUN mkdir -p /code/pelias /data
 
 # configure git
 RUN git config --global 'user.email' 'pelias.team@gmail.com'
@@ -44,3 +41,8 @@ RUN useradd -ms /bin/bash pelias
 
 # ensure symlinks, pelias.json, and anything else are owned by pelias user
 RUN chown pelias:pelias /data /code -R
+
+# configure volumes
+VOLUME "/data"
+
+
