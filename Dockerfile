@@ -15,8 +15,8 @@ ENV LANG 'en_US.UTF-8'
 ENV LANGUAGE 'en_US:en'
 ENV LC_ALL 'en_US.UTF-8'
 
-# maintainer information¬
-LABEL maintainer="pelias.team@gmail.com"¬
+# maintainer information
+LABEL maintainer="team@pelias.io"
 
 # configure directories
 RUN mkdir -p '/code/pelias'
@@ -25,7 +25,7 @@ RUN mkdir -p '/code/pelias'
 VOLUME "/data"
 
 # configure git
-RUN git config --global 'user.email' 'pelias.team@gmail.com'
+RUN git config --global 'user.email' 'team@pelias.io'
 RUN git config --global 'user.name' 'Pelias Docker'
 
 # install nodejs
