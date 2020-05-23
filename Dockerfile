@@ -1,5 +1,5 @@
 # base image
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 # configure env
 ENV DEBIAN_FRONTEND 'noninteractive'
