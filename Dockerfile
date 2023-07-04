@@ -29,7 +29,7 @@ RUN git config --global 'user.email' 'team@pelias.io'
 RUN git config --global 'user.name' 'Pelias Docker'
 
 # install nodejs
-ENV NODE_VERSION='12.22.2'
+ENV NODE_VERSION='16.20.1'
 RUN git clone 'https://github.com/isaacs/nave.git' /code/nave && /code/nave/nave.sh 'usemain' "${NODE_VERSION}" && rm -rf ~/.nave /code/nave
 
 # add global install dir to $NODE_PATH
