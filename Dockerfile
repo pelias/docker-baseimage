@@ -19,7 +19,7 @@ ENV LC_ALL 'en_US.UTF-8'
 LABEL maintainer="team@pelias.io"
 
 # configure directories
-RUN mkdir -p '/code/pelias'
+RUN mkdir -p '/data' '/code/pelias'
 
 # configure volumes
 VOLUME "/data"
@@ -35,8 +35,10 @@ RUN git clone 'https://github.com/isaacs/nave.git' /code/nave && /code/nave/nave
 # add global install dir to $NODE_PATH
 ENV NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
+# node version is so old it requires an older version of npm (max version 9)
+# https://stackoverflow.com/a/77024158
 # ensure NPM is up to date
-RUN npm install -g npm
+RUN npm i npm@9 -g
 
 # get ready for pelias config with an empty file
 ENV PELIAS_CONFIG '/code/pelias.json'
