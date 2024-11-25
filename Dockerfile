@@ -29,16 +29,14 @@ RUN git config --global 'user.email' 'team@pelias.io'
 RUN git config --global 'user.name' 'Pelias Docker'
 
 # install nodejs
-ENV NODE_VERSION='16.20.1'
+ENV NODE_VERSION='18.20.5'
 RUN git clone 'https://github.com/isaacs/nave.git' /code/nave && /code/nave/nave.sh 'usemain' "${NODE_VERSION}" && rm -rf ~/.nave /code/nave
 
 # add global install dir to $NODE_PATH
 ENV NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
-# node version is so old it requires an older version of npm (max version 9)
-# https://stackoverflow.com/a/77024158
 # ensure NPM is up to date
-RUN npm i npm@9 -g
+RUN npm i npm -g
 
 # get ready for pelias config with an empty file
 ENV PELIAS_CONFIG '/code/pelias.json'
