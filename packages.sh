@@ -5,6 +5,9 @@ packages=(
 "curl"
 "wget"
 "git-core"
+"bzip2"
+"lbzip2"
+"unzip"
 )
 
 apt-get update && \
