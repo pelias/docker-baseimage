@@ -8,6 +8,7 @@ packages=(
 "bzip2"
 "lbzip2"
 "unzip"
+"libsqlite3-mod-spatialite" # required for spatialite support in sqlite3
 )
 
 apt-get update && \
