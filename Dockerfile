@@ -2,7 +2,7 @@
 FROM ubuntu:24.04
 
 # configure env
-ENV DEBIAN_FRONTEND 'noninteractive'
+ENV DEBIAN_FRONTEND='noninteractive'
 
 # update apt, install core apt dependencies and delete the apt-cache
 # note: this is done in one command in order to keep down the size of intermediate containers
@@ -11,9 +11,9 @@ RUN bash packages.sh
 
 # configure locale
 RUN locale-gen 'en_US.UTF-8'
-ENV LANG 'en_US.UTF-8'
-ENV LANGUAGE 'en_US:en'
-ENV LC_ALL 'en_US.UTF-8'
+ENV LANG='en_US.UTF-8'
+ENV LANGUAGE='en_US:en'
+ENV LC_ALL='en_US.UTF-8'
 
 # maintainer information
 LABEL maintainer="team@pelias.io"
@@ -39,7 +39,7 @@ ENV NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 RUN npm i npm -g
 
 # get ready for pelias config with an empty file
-ENV PELIAS_CONFIG '/code/pelias.json'
+ENV PELIAS_CONFIG='/code/pelias.json'
 RUN echo '{}' > '/code/pelias.json'
 
 # add a pelias user
