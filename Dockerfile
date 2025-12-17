@@ -35,6 +35,7 @@ RUN git clone 'https://github.com/isaacs/nave.git' /code/nave && \
     /code/nave/nave.sh 'usemain' "${NODE_VERSION}" && \
     rm -rf ~/.nave /code/nave && \
     npm i npm -g && \
+    find /usr/local/include/node/openssl/archs -mindepth 1 -maxdepth 1 ! -name "linux-x86_64" ! -name "linux-aarch64" -exec rm -rf {} \; && \
     rm -rf /usr/local/lib/node_modules/npm/docs \
            /usr/local/lib/node_modules/npm/man \
            ~/.npm
