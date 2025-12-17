@@ -3,6 +3,7 @@ FROM ubuntu:24.04
 
 # configure env
 ENV DEBIAN_FRONTEND='noninteractive'
+ENV NODE_PATH=''
 
 # update apt, install core apt dependencies and delete the apt-cache
 # note: this is done in one command in order to keep down the size of intermediate containers
@@ -30,13 +31,16 @@ RUN git config --global 'user.name' 'Pelias Docker'
 
 # install nodejs
 ENV NODE_VERSION='20.19.4'
-RUN git clone 'https://github.com/isaacs/nave.git' /code/nave && /code/nave/nave.sh 'usemain' "${NODE_VERSION}" && rm -rf ~/.nave /code/nave
+RUN git clone 'https://github.com/isaacs/nave.git' /code/nave && \
+    /code/nave/nave.sh 'usemain' "${NODE_VERSION}" && \
+    rm -rf ~/.nave /code/nave && \
+    npm i npm -g && \
+    rm -rf /usr/local/lib/node_modules/npm/docs \
+           /usr/local/lib/node_modules/npm/man \
+           ~/.npm
 
 # add global install dir to $NODE_PATH
 ENV NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
-
-# ensure NPM is up to date
-RUN npm i npm -g
 
 # get ready for pelias config with an empty file
 ENV PELIAS_CONFIG='/code/pelias.json'

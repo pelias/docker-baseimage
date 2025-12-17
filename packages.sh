@@ -1,10 +1,11 @@
 packages=(
 "locales" # required for language support
+"ca-certificates" # required for nave to access https endpoints
 "apt-utils"
 "iputils-ping"
 "curl"
 "wget"
-"git-core"
+"git"
 "bzip2"
 "lbzip2"
 "unzip"
@@ -13,4 +14,5 @@ packages=(
 
 apt-get update && \
   apt-get install -y ${packages[@]} && \
+  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
