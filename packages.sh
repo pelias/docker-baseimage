@@ -8,6 +8,10 @@ packages=(
 "bzip2"
 "lbzip2"
 "unzip"
+"pigz"
+"zstd"
+"time"
+"gawk"
 "libsqlite3-mod-spatialite" # required for spatialite support in sqlite3
 )
 
