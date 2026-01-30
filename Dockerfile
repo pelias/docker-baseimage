@@ -30,7 +30,7 @@ RUN git config --global 'user.email' 'team@pelias.io'
 RUN git config --global 'user.name' 'Pelias Docker'
 
 # install nodejs
-ENV NODE_VERSION='20.19.4'
+ENV NODE_VERSION='24.13.0'
 RUN git clone 'https://github.com/isaacs/nave.git' /code/nave && \
     /code/nave/nave.sh 'usemain' "${NODE_VERSION}" && \
     rm -rf ~/.nave /code/nave && \
