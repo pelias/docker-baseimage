@@ -14,6 +14,7 @@ packages=(
 "time"
 "gawk"
 "libsqlite3-mod-spatialite" # required for spatialite support in sqlite3
+"libatomic1" # required by node.js 26
 )
 
 apt-get update && \
